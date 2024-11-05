@@ -6,9 +6,7 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetView200ResultItemPosition = {
-  /** target of x position */
-  x: number;
-  /** target of y position */
-  y: number;
+export type GetApiHandlerViewDefault = {
+  /** A detailed error message. */
+  error?: string;
 };

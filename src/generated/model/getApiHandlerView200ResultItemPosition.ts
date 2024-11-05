@@ -6,7 +6,9 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetView404 = {
-  /** A detailed error message. */
-  error?: string;
+export type GetApiHandlerView200ResultItemPosition = {
+  /** target of x position */
+  x: number;
+  /** target of y position */
+  y: number;
 };

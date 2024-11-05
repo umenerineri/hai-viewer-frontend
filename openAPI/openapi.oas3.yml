@@ -7,7 +7,7 @@ servers:
     - url: https://frontend.example.com
       description: Frontend Server
 paths:
-    /view:
+    /api/handler/view:
         get:
             summary: Drawing Viewer Page
             description: Viewer Page for human AI drawings.

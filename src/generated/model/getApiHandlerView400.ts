@@ -6,7 +6,6 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type GetViewDefault = {
-  /** A detailed error message. */
+export type GetApiHandlerView400 = {
   error?: string;
 };

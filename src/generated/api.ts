@@ -27,10 +27,10 @@ import type {
   AxiosResponse
 } from 'axios'
 import type {
-  GetView200,
-  GetView400,
-  GetView404,
-  GetViewDefault
+  GetApiHandlerView200,
+  GetApiHandlerView400,
+  GetApiHandlerView404,
+  GetApiHandlerViewDefault
 } from './model'
 
 
@@ -39,77 +39,77 @@ import type {
  * Viewer Page for human AI drawings.
  * @summary Drawing Viewer Page
  */
-export const getView = (
+export const getApiHandlerView = (
      options?: AxiosRequestConfig
- ): Promise<AxiosResponse<GetView200>> => {
+ ): Promise<AxiosResponse<GetApiHandlerView200>> => {
     
     return axios.get(
-      `/view`,options
+      `/api/handler/view`,options
     );
   }
 
 
-export const getGetViewQueryKey = () => {
-    return [`/view`] as const;
+export const getGetApiHandlerViewQueryKey = () => {
+    return [`/api/handler/view`] as const;
     }
 
     
-export const getGetViewQueryOptions = <TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>>, axios?: AxiosRequestConfig}
+export const getGetApiHandlerViewQueryOptions = <TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>>, axios?: AxiosRequestConfig}
 ) => {
 
 const {query: queryOptions, axios: axiosOptions} = options ?? {};
 
-  const queryKey =  queryOptions?.queryKey ?? getGetViewQueryKey();
+  const queryKey =  queryOptions?.queryKey ?? getGetApiHandlerViewQueryKey();
 
   
 
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof getView>>> = ({ signal }) => getView({ signal, ...axiosOptions });
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiHandlerView>>> = ({ signal }) => getApiHandlerView({ signal, ...axiosOptions });
 
       
 
       
 
-   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData> & { queryKey: QueryKey }
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData> & { queryKey: QueryKey }
 }
 
-export type GetViewQueryResult = NonNullable<Awaited<ReturnType<typeof getView>>>
-export type GetViewQueryError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>
+export type GetApiHandlerViewQueryResult = NonNullable<Awaited<ReturnType<typeof getApiHandlerView>>>
+export type GetApiHandlerViewQueryError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>
 
 
-export function useGetView<TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>(
-  options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>> & Pick<
+export function useGetApiHandlerView<TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>(
+  options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
-          Awaited<ReturnType<typeof getView>>,
+          Awaited<ReturnType<typeof getApiHandlerView>>,
           TError,
           TData
         > , 'initialData'
       >, axios?: AxiosRequestConfig}
 
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: QueryKey }
-export function useGetView<TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>(
-  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>> & Pick<
+export function useGetApiHandlerView<TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
-          Awaited<ReturnType<typeof getView>>,
+          Awaited<ReturnType<typeof getApiHandlerView>>,
           TError,
           TData
         > , 'initialData'
       >, axios?: AxiosRequestConfig}
 
   ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
-export function useGetView<TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>(
-  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>>, axios?: AxiosRequestConfig}
+export function useGetApiHandlerView<TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>>, axios?: AxiosRequestConfig}
 
   ):  UseQueryResult<TData, TError> & { queryKey: QueryKey }
 /**
  * @summary Drawing Viewer Page
  */
 
-export function useGetView<TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>(
-  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>>, axios?: AxiosRequestConfig}
+export function useGetApiHandlerView<TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>>, axios?: AxiosRequestConfig}
 
   ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
 
-  const queryOptions = getGetViewQueryOptions(options)
+  const queryOptions = getGetApiHandlerViewQueryOptions(options)
 
   const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
 
@@ -120,50 +120,50 @@ export function useGetView<TData = Awaited<ReturnType<typeof getView>>, TError =
 
 
 
-export const getGetViewSuspenseQueryOptions = <TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>( options?: { query?:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>>, axios?: AxiosRequestConfig}
+export const getGetApiHandlerViewSuspenseQueryOptions = <TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>( options?: { query?:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>>, axios?: AxiosRequestConfig}
 ) => {
 
 const {query: queryOptions, axios: axiosOptions} = options ?? {};
 
-  const queryKey =  queryOptions?.queryKey ?? getGetViewQueryKey();
+  const queryKey =  queryOptions?.queryKey ?? getGetApiHandlerViewQueryKey();
 
   
 
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof getView>>> = ({ signal }) => getView({ signal, ...axiosOptions });
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getApiHandlerView>>> = ({ signal }) => getApiHandlerView({ signal, ...axiosOptions });
 
       
 
       
 
-   return  { queryKey, queryFn, ...queryOptions} as UseSuspenseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData> & { queryKey: QueryKey }
+   return  { queryKey, queryFn, ...queryOptions} as UseSuspenseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData> & { queryKey: QueryKey }
 }
 
-export type GetViewSuspenseQueryResult = NonNullable<Awaited<ReturnType<typeof getView>>>
-export type GetViewSuspenseQueryError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>
+export type GetApiHandlerViewSuspenseQueryResult = NonNullable<Awaited<ReturnType<typeof getApiHandlerView>>>
+export type GetApiHandlerViewSuspenseQueryError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>
 
 
-export function useGetViewSuspense<TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>(
-  options: { query:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>>, axios?: AxiosRequestConfig}
-
-  ):  UseSuspenseQueryResult<TData, TError> & { queryKey: QueryKey }
-export function useGetViewSuspense<TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>(
-  options?: { query?:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>>, axios?: AxiosRequestConfig}
+export function useGetApiHandlerViewSuspense<TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>(
+  options: { query:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>>, axios?: AxiosRequestConfig}
 
   ):  UseSuspenseQueryResult<TData, TError> & { queryKey: QueryKey }
-export function useGetViewSuspense<TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>(
-  options?: { query?:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>>, axios?: AxiosRequestConfig}
+export function useGetApiHandlerViewSuspense<TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>(
+  options?: { query?:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>>, axios?: AxiosRequestConfig}
+
+  ):  UseSuspenseQueryResult<TData, TError> & { queryKey: QueryKey }
+export function useGetApiHandlerViewSuspense<TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>(
+  options?: { query?:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>>, axios?: AxiosRequestConfig}
 
   ):  UseSuspenseQueryResult<TData, TError> & { queryKey: QueryKey }
 /**
  * @summary Drawing Viewer Page
  */
 
-export function useGetViewSuspense<TData = Awaited<ReturnType<typeof getView>>, TError = AxiosError<GetView400 | GetView404 | void | GetViewDefault>>(
-  options?: { query?:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getView>>, TError, TData>>, axios?: AxiosRequestConfig}
+export function useGetApiHandlerViewSuspense<TData = Awaited<ReturnType<typeof getApiHandlerView>>, TError = AxiosError<GetApiHandlerView400 | GetApiHandlerView404 | void | GetApiHandlerViewDefault>>(
+  options?: { query?:Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getApiHandlerView>>, TError, TData>>, axios?: AxiosRequestConfig}
 
   ):  UseSuspenseQueryResult<TData, TError> & { queryKey: QueryKey } {
 
-  const queryOptions = getGetViewSuspenseQueryOptions(options)
+  const queryOptions = getGetApiHandlerViewSuspenseQueryOptions(options)
 
   const query = useSuspenseQuery(queryOptions) as  UseSuspenseQueryResult<TData, TError> & { queryKey: QueryKey };
 

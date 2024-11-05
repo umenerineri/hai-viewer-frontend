@@ -6,9 +6,9 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export * from './getView200';
-export * from './getView200ResultItem';
-export * from './getView200ResultItemPosition';
-export * from './getView400';
-export * from './getView404';
-export * from './getViewDefault';
+export * from './getApiHandlerView200';
+export * from './getApiHandlerView200ResultItem';
+export * from './getApiHandlerView200ResultItemPosition';
+export * from './getApiHandlerView400';
+export * from './getApiHandlerView404';
+export * from './getApiHandlerViewDefault';

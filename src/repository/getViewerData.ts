@@ -1,4 +1,4 @@
-import { getGetViewQueryKey, useGetViewSuspense } from "@/generated/api";
+import { getGetApiHandlerViewQueryKey, useGetApiHandlerViewSuspense } from "@/generated/api";
 
 import { useQueryClient } from "@tanstack/react-query";
 import { useCallback } from "react";
@@ -10,10 +10,10 @@ export const useViewerRepository = () => {
         data: {
             data: { result: viewerData },
         },
-    } = useGetViewSuspense();
+    } = useGetApiHandlerViewSuspense();
 
     const refetch = useCallback(async () => {
-        queryClient.invalidateQueries({ queryKey: getGetViewQueryKey() });
+        queryClient.invalidateQueries({ queryKey: getGetApiHandlerViewQueryKey() });
     }, [queryClient]);
 
     return {
