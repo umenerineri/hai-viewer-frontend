@@ -19,7 +19,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-    title: "III-Exhibition Extra Works-HAI.",
+    title: "Exquisite Corpse with Generative AI",
     description: "human-AI pair drawing app viewer page",
 };
 
