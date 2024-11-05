@@ -19,8 +19,8 @@ export const ViewerGrid: FC<props> = ({ children, className }) => {
         <div
             className={clsx(gridStyle, className)}
             style={{
-                gridTemplateColumns: `repeat(${grid.cols}, ${VIEWER_CARD_SIZE_NUMBER})`,
-                gridTemplateRows: `repeat(${grid.rows}, ${VIEWER_CARD_SIZE_NUMBER})`,
+                gridTemplateColumns: `repeat(${grid.cols}, ${VIEWER_CARD_SIZE_NUMBER}px)`,
+                gridTemplateRows: `repeat(${grid.rows}, ${VIEWER_CARD_SIZE_NUMBER}px)`,
             }}
         >
             {children}
