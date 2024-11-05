@@ -1,0 +1,143 @@
+openapi: 3.0.3
+info:
+    title: III-Exhibition works-HAI viewer
+    description: API specification for interactions between Frontend, Backend, and Cloud Storage.
+    version: 1.0.0
+servers:
+    - url: https://frontend.example.com
+      description: Frontend Server
+paths:
+    /view:
+        get:
+            summary: Drawing Viewer Page
+            description: Viewer Page for human AI drawings.
+            responses:
+                "200":
+                    description: Drawings were successfully fetched.
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    result:
+                                        type: array
+                                        items:
+                                            type: object
+                                            properties:
+                                                position:
+                                                    type: object
+                                                    properties:
+                                                        x:
+                                                            type: integer
+                                                            description: target of x position
+                                                            example: 0
+                                                        y:
+                                                            type: integer
+                                                            description: target of y position
+                                                            example: 0
+                                                    required:
+                                                        - x
+                                                        - y
+                                                url:
+                                                    type: string
+                                                    description: "Presigned URL for target position."
+                                            required:
+                                                - position
+                                                - url
+                                required:
+                                    - result
+
+                            example:
+                                result:
+                                    [
+                                        {
+                                            position: { x: 0, y: 0 },
+                                            url: "https://placehold.jp/512x512.png?text=0",
+                                        },
+                                        {
+                                            position: { x: 0, y: -1 },
+                                            url: "https://placehold.jp/512x512.png?text=1",
+                                        },
+                                        {
+                                            position: { x: 1, y: -1 },
+                                            url: "https://placehold.jp/512x512.png?text=2",
+                                        },
+                                        {
+                                            position: { x: 1, y: 0 },
+                                            url: "https://placehold.jp/512x512.png?text=3",
+                                        },
+                                        {
+                                            position: { x: 1, y: 1 },
+                                            url: "https://placehold.jp/512x512.png?text=4",
+                                        },
+                                        {
+                                            position: { x: 0, y: 1 },
+                                            url: "https://placehold.jp/512x512.png?text=5",
+                                        },
+                                        {
+                                            position: { x: -1, y: 1 },
+                                            url: "https://placehold.jp/512x512.png?text=6",
+                                        },
+                                        {
+                                            position: { x: -1, y: 0 },
+                                            url: "https://placehold.jp/512x512.png?text=7",
+                                        },
+                                        {
+                                            position: { x: -1, y: -1 },
+                                            url: "https://placehold.jp/512x512.png?text=8",
+                                        },
+                                        {
+                                            position: { x: -1, y: -2 },
+                                            url: "https://placehold.jp/512x512.png?text=9",
+                                        },
+                                        {
+                                            position: { x: 0, y: -2 },
+                                            url: "https://placehold.jp/512x512.png?text=10",
+                                        },
+                                        {
+                                            position: { x: 1, y: -2 },
+                                            url: "https://placehold.jp/512x512.png?text=11",
+                                        },
+                                    ]
+                "400":
+                    description: Bad Request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                                        example: "Invalid input data"
+                "404":
+                    description: Not Found - No drawing found for the specified position.
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                                        description: "A detailed error message."
+                                example:
+                                    error: "No drawing found for the specified position."
+                "500":
+                    description: Internal Server Error - The server encountered an unexpected condition that prevented it from fulfilling the request.
+                default:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    error:
+                                        type: string
+                                        description: "A detailed error message."
+components:
+    securitySchemes:
+        ApiKeyAuth:
+            type: apiKey
+            in: header
+            name: X-Api-Key
+security:
+    - ApiKeyAuth: []
