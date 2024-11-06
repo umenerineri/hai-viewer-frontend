@@ -11,15 +11,6 @@ export const wrapper = style({
     height: "100vh",
     backgroundColor: vars.colors.background[7],
 });
-
-export const controlWrapper = style({
-    display: "flex",
-    flexDirection: "row",
-    position: "absolute",
-    bottom: "5px",
-    zIndex: 100,
-});
-
 export const viewerGrid = style({
     minWidth: "100vw",
     minHeight: "100vh",
