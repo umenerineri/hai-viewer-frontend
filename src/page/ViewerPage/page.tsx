@@ -1,9 +1,7 @@
 "use client";
 
-import { FC, useEffect } from "react";
-import { TransformComponent, TransformWrapper, useControls } from "react-zoom-pan-pinch";
-
-import { getAbsoluteVectorToShiftForCentering } from "@/utils/viewer";
+import { FC } from "react";
+import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
 import { useViewer } from "./hooks";
 import { Control } from "./internal/Control";
@@ -36,17 +34,6 @@ export const ViewerPage = () => {
 
 const InternalPage: FC = () => {
     const { data } = useViewer();
-    const { setTransform } = useControls();
-
-    useEffect(() => {
-        if (data) {
-            const center = getAbsoluteVectorToShiftForCentering(data.length, window.innerHeight);
-            console.log(center);
-            setTimeout(() => {
-                setTransform(center.width, center.height, 1);
-            }, 0);
-        }
-    }, [data, setTransform]);
 
     return (
         <ViewerGrid className={viewerGrid}>
