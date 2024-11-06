@@ -1,4 +1,4 @@
-export const VIEWER_CARD_SIZE_NUMBER = 256 as const;
+export const VIEWER_CARD_SIZE_NUMBER = 128 as const;
 
 export type Position = {
     x: number;

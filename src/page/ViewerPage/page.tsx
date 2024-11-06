@@ -4,9 +4,9 @@ import { FC } from "react";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 
 import { useViewer } from "./hooks";
-import { Control } from "./internal/Control";
 
 import { ViewerCard } from "@/components/application/ViewerCard";
+import { ViewerControl } from "@/components/application/ViewerControl";
 import { ViewerGrid } from "@/components/application/ViewerGrid";
 
 import { viewerGrid, wrapper } from "./page.css";
@@ -22,7 +22,7 @@ export const ViewerPage = () => {
                 limitToBounds={false}
             >
                 <>
-                    <Control />
+                    <ViewerControl />
                     <TransformComponent>
                         <InternalPage />
                     </TransformComponent>

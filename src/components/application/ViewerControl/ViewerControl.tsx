@@ -5,9 +5,9 @@ import { useControls } from "react-zoom-pan-pinch";
 
 import { IconButton } from "@/components/ui/IconButton";
 
-import { controlWrapper } from "./Control.css";
+import { controlWrapper } from "./ViewerControl.css";
 
-export const Control: FC = () => {
+export const ViewerControl: FC = () => {
     const { zoomIn, zoomOut, resetTransform } = useControls();
 
     return (
